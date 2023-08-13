@@ -1,0 +1,122 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# psychochart LEGEND NPC
+
+
+  [anyone|plyr,"sacerdote_talk", [], "What can you tell me about your skills and mutation?", "sacerdote_member_char_requested",[]],
+  [anyone|plyr,"sacerdote_talk", [(store_conversation_troop, "$g_talk_troop")], "What are your thoughts on morality and psychology?", "sacerdote_view_member_psycho_char_requested",[]],
+  [anyone|plyr,"sacerdote_talk", [(store_conversation_troop, "$g_talk_troop")], "What can you tell me about your past?", "sacerdote_view_member_bio_char_requested",[]],
+ 
+ 
+ [anyone,"sacerdote_member_char_requested", [(store_conversation_troop, ":troop_id"),(troop_get_slot, ":mutation", ":troop_id", slot_troop_mutation), (troop_get_slot, ":cycle", ":troop_id", slot_troop_mutation_cycle), (assign, reg10, ":mutation"),
+  (try_begin),
+  (lt,":cycle",0),
+   (assign, ":cycle",0),
+  (try_end),
+  
+  (assign, reg11, ":cycle"),
+  (call_script, "script_store_troop_military_power", ":troop_id"),
+  (assign, reg22, reg0),
+  
+  ], "Dear {playername}, I really think that it is not your bussiness. But I am an honest man. I will tell you all there is to know about me. I have {reg10} mutation and I am in {reg11} mutation cycle. My overall military power value is {reg22}.", "sacerdote_talk",[[change_screen_view_character]]],
+
+  
+  
+  
+[anyone,"sacerdote_view_member_bio_char_requested", [(store_conversation_troop, ":troop_id"),
+  (call_script, "script_bio_chart_to_str28", ":troop_id"),
+  
+  ], "{s28}", "do_member_view_char",[  ]],
+
+  	
+ 
+ 
+  
+[anyone,"sacerdote_view_member_psycho_char_requested", [(store_conversation_troop, ":troop_id"),
+  (call_script, "script_psycho_chart_to_str18", ":troop_id"),
+  
+  ], "{s28}", "view_member_psycho_char_reputation",[  ]],
+  
+ # psychochart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script_indict_lord_for_treason
+
+script_dplmc_troop_can_use_item
+
+script_player_get_value_of_original_items
+
+script_political_fiction
+
+script_get_troop_max_hp
+
+script_indict_lord_for_treason
+
+script_game_event_buy_item
+
+script_game_get_troop_wage = 19
+script_game_get_total_wage = 20
+script_game_get_join_cost = 21
+script_game_get_upgrade_xp = 22
+script_game_get_upgrade_cost = 23
+script_game_get_prisoner_price = 24
+script_game_check_prisoner_can_be_sold = 25
+
+script_game_get_party_prisoner_limit = 129
+script_game_get_item_extra_text = 130
+script_game_on_disembark = 131
+
+script_cf_select_random_town_with_faction = 195
+script_cf_select_random_village_with_faction = 196
+script_cf_select_random_walled_center_with_faction = 197
+script_cf_select_random_walled_center_with_faction_and_owner_priority_no_siege = 198
+script_cf_select_random_walled_center_with_faction_and_less_strength_priority = 199
+script_cf_select_random_town_at_peace_with_faction = 200
+script_cf_select_random_town_at_peace_with_faction_in_trade_route = 201
+script_cf_select_most_profitable_town_at_peace_with_faction_in_trade_route = 202
+
+script_get_quest = 204
+script_get_dynamic_quest = 205
+script_get_political_quest = 206
+script_npc_find_quest_for_player_to_s11 = 207
+
+script_cf_get_random_enemy_center_within_range = 208
+script_cf_faction_get_random_enemy_faction = 209
+script_cf_faction_get_random_friendly_faction = 210
+
+script_get_closest_walled_center = 215
+script_get_closest_center = 216
+script_get_closest_center_of_faction = 217
+script_get_closest_walled_center_of_faction = 218
+
+
+script_let_nearby_parties_join_current_battle = 219
